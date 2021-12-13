@@ -137,24 +137,24 @@ jQuery(document).ready(function ($) {
     if (scroll >= services - 100 && scroll < skills - 100) {
       // alert("이벤트 실행");
       $('.nav-menu li:nth-child(3)').addClass('menu-active');
-      // pieChartHtml.enableAnimation();
-      // pieChartHtml.update(95);
-      // pieChartCss.enableAnimation();
-      // pieChartCss.update(90);
-      // pieChartGraph.update(85);
-      // pieChartGraph.enableAnimation();
-      // pieChartJs.update(80);
-      // pieChartJs.enableAnimation();
+      pieChartHtml.update(0);
+      pieChartHtml.update(95);
+      pieChartCss.update(0);
+      pieChartCss.update(95);
+      pieChartGraph.update(0);
+      pieChartGraph.update(95);
+      pieChartJs.update(0);
+      pieChartJs.update(95);
     } else {
-      $('.nav-menu li:nth-child(3)').removeClass('menu-active');
-      // // pieChartHtml.update(0);
-      // pieChartHtml.enableAnimation();
-      // // pieChartCss.update(0);
-      // pieChartCss.enableAnimation();
-      // // pieChartGraph.update(0);
-      // pieChartGraph.enableAnimation();
-      // // pieChartJs.update(0);
-      // pieChartJs.enableAnimation();
+      pieChartHtml.update(0);
+      pieChartHtml.update(95);
+      pieChartCss.update(0);
+      pieChartCss.update(95);
+      pieChartGraph.update(0);
+      pieChartGraph.update(95);
+      pieChartJs.update(0);
+      pieChartJs.update(95);
+      $('.nav-menu li:nth-child(3)').removeClass('menu-active');      
     }
     if (scroll >= skills - 100 && scroll < portfolio - 120) {
       // alert("이벤트 실행");          
