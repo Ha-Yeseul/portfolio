@@ -1,4 +1,6 @@
 jQuery(document).ready(function ($) {
+  // swiper
+  var swiper = new Swiper(".cardNews", {});
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
@@ -138,22 +140,22 @@ jQuery(document).ready(function ($) {
       // alert("이벤트 실행");
       $('.nav-menu li:nth-child(3)').addClass('menu-active');
       pieChartHtml.update(0);
-      pieChartHtml.update(95);
+      pieChartHtml.update(85);
       pieChartCss.update(0);
-      pieChartCss.update(95);
+      pieChartCss.update(80);
       pieChartGraph.update(0);
-      pieChartGraph.update(95);
+      pieChartGraph.update(80);
       pieChartJs.update(0);
-      pieChartJs.update(95);
+      pieChartJs.update(70);
     } else {
       pieChartHtml.update(0);
-      pieChartHtml.update(95);
+      pieChartHtml.update(85);
       pieChartCss.update(0);
-      pieChartCss.update(95);
+      pieChartCss.update(80);
       pieChartGraph.update(0);
-      pieChartGraph.update(95);
+      pieChartGraph.update(80);
       pieChartJs.update(0);
-      pieChartJs.update(95);
+      pieChartJs.update(70);
       $('.nav-menu li:nth-child(3)').removeClass('menu-active');      
     }
     if (scroll >= skills - 100 && scroll < portfolio - 120) {
@@ -213,10 +215,10 @@ jQuery(document).ready(function ($) {
   });
 
   // jQuery counterUp (used in Facts section)
-  $('[data-toggle="counter-up"]').counterUp({
-    delay: 10,
-    time: 1000
-  });
+  // $('[data-toggle="counter-up"]').counterUp({
+  //   delay: 10,
+  //   time: 1000
+  // });
 
   // Porfolio isotope and filter
   var portfolioIsotope = $('.portfolio-container').isotope({
@@ -300,7 +302,7 @@ $(".leaflet_btn").click(function (e) {
   $(".leaflet").stop().slideDown(1000);
 });
 
-$(".view_detail a").click(function (e) {
+$(".view_detail>a").click(function (e) {
   e.preventDefault();
   $(".view_detail").stop().slideUp(1000);
 });
