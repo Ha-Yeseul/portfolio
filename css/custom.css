@@ -135,18 +135,13 @@ span {
   background-color: #f7f5f5;
   width: 70vw;
   height: 90vh;
-  position: absolute;
-  /* bottom: -100vw; */
+  position: relative; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: scroll;
   z-index: 999;
-  /* opacity: 0; */
-  /* transition: all 0.5s; */
-  border-radius: 5px;
-  /* display: none; */
-  
+  border-radius: 5px;  
 }
 
 .view_detail .view .txt{
@@ -202,19 +197,36 @@ span {
   color: #f7f5f5;
 }
 
-.view_detail>a {
+.view > a {
   display: inline-block;
   position: absolute;
-  top: 10%;
-  right: 5%;
+  top: 20px;
+  right: -20px;
 }
 
-.view_detail>a i {
-  color: #fff;
-  transition: all 0.5;
+.view >a i {
+  color: #ccc;
+  transition: all 0.5s;
 }
 
-.view_detail>a:hover i {
+.view >a:hover i {
+  color: red;
+}
+
+/* 닫기버튼 */
+.view_detail > a {
+  display: inline-block;
+  position: absolute;
+  top: 5%;
+  right: 12%;
+}
+
+.view_detail >a i {
+  color: #ccc;
+  transition: all 0.5s;
+}
+
+.view_detail >a:hover i {
   color: red;
 }
 
@@ -224,6 +236,8 @@ span {
   height: auto;
   margin: 0 auto;
 }
+
+
 
 /* 카드뉴스제작 */
 
@@ -414,8 +428,15 @@ figure>.btn_box:hover {
  } */
 
 @media (max-width:768px) {
-  .view_detail a i {
-    font-size: 2rem;
+  .view > a i {
+    font-size: 2.4rem;
+  }
+  .view_detail > a{
+    top: 15px;
+    right: 20px;
+  }
+  .view_detail > a i {
+    font-size: 2.4rem;
   }
 
   .chart_wrap span {
@@ -424,8 +445,12 @@ figure>.btn_box:hover {
 }
 
 @media (min-width:1024px) {
-  .view_detail a i {
-    font-size: 6rem;
+  .view > a i {
+    font-size: 4rem;
+  }
+
+  .view_detail > a i {
+    font-size: 4rem;
   }
 
   .chart_wrap span {

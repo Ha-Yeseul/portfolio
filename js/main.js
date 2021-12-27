@@ -302,11 +302,15 @@ $(".leaflet_btn").click(function (e) {
   $(".leaflet").stop().slideDown(1000);
 });
 
-$(".view_detail>a").click(function (e) {
+$(".view>a").click(function (e) {
   e.preventDefault();
   $(".view_detail").stop().slideUp(1000);
 });
 
+$(".view_detail>a").click(function (e) {
+  e.preventDefault();
+  $(".view_detail").stop().slideUp(1000);
+});
 // 파이차트 플러그인
 
 window.onload = function () {
