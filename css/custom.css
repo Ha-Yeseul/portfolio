@@ -206,12 +206,12 @@ span {
   display: inline-block;
   position: absolute;
   top: 10%;
-  right: 5%;
+  right: 10%;
 }
 
 .view_detail>a i {
   color: #fff;
-  transition: all 0.5;
+  transition: all 0.5s;
 }
 
 .view_detail>a:hover i {
@@ -273,11 +273,20 @@ span {
 @media (max-width:768px){
 
   .view_detail .view {
-    width: 90vw;
+    width: 85vw;
   }
   .view_detail .view .txt{
     width: 95%;
     padding: 50px 0;
+  }
+
+  .view_detail>a{
+    top: 10px;
+    right: 15px;
+  }
+
+  .view_detail>a i{
+    font-size: 2rem;
   }
 
   .view_detail .view .txt h4{
