@@ -114,7 +114,39 @@ jQuery(document).ready(function ($) {
   console.log("portfolio " + portfolio);
   console.log("contact " + contact);
 
+  let lastScrollPosition = 0;
+  let initUp = false;
+  let initDown = false;
 
+  function scrollChartEvent(scroll, lastScrollPos) {
+    if (scroll < lastScrollPos && initUp == false) {
+      //scroll Up
+      console.log("스크롤 업")
+      initUp = true;
+      initDown = false;
+      drawChart();
+    }
+    if (scroll > lastScrollPos && initDown == false) {
+      //scroll Down
+      console.log("스크롤 다운")
+      initDown = true;
+      initUp = false;
+      drawChart();
+      
+    }
+    console.log("scroll : " + scroll )
+    console.log("lastScrollPos : " + lastScrollPos )
+  }
+  function drawChart(){
+    pieChartHtml.update(0);
+    pieChartHtml.update(85);
+    pieChartCss.update(0);
+    pieChartCss.update(80);
+    pieChartGraph.update(0);
+    pieChartGraph.update(80);
+    pieChartJs.update(0);
+    pieChartJs.update(70);
+  }
 
   $(window).scroll(function () {
     var scroll = $(this).scrollTop();
@@ -136,27 +168,28 @@ jQuery(document).ready(function ($) {
     } else {
       $('.nav-menu li:nth-child(2)').removeClass('menu-active');
     }
-    if (scroll >= services - 100 && scroll < skills - 100) {
+    if (scroll >= services - 100 && scroll < skills -100 ) {
+      scrollChartEvent(scroll, lastScrollPosition);
       // alert("이벤트 실행");
       $('.nav-menu li:nth-child(3)').addClass('menu-active');
-      pieChartHtml.update(0);
-      pieChartHtml.update(85);
-      pieChartCss.update(0);
-      pieChartCss.update(80);
-      pieChartGraph.update(0);
-      pieChartGraph.update(80);
-      pieChartJs.update(0);
-      pieChartJs.update(70);
+      // pieChartHtml.update(0);
+      // pieChartHtml.update(85);
+      // pieChartCss.update(0);
+      // pieChartCss.update(80);
+      // pieChartGraph.update(0);
+      // pieChartGraph.update(80);
+      // pieChartJs.update(0);
+      // pieChartJs.update(70);
     } else {
-      pieChartHtml.update(0);
-      pieChartHtml.update(85);
-      pieChartCss.update(0);
-      pieChartCss.update(80);
-      pieChartGraph.update(0);
-      pieChartGraph.update(80);
-      pieChartJs.update(0);
-      pieChartJs.update(70);
-      $('.nav-menu li:nth-child(3)').removeClass('menu-active');      
+      // pieChartHtml.update(0);
+      // pieChartHtml.update(85);
+      // pieChartCss.update(0);
+      // pieChartCss.update(80);
+      // pieChartGraph.update(0);
+      // pieChartGraph.update(80);
+      // pieChartJs.update(0);
+      // pieChartJs.update(70);
+      $('.nav-menu li:nth-child(3)').removeClass('menu-active');
     }
     if (scroll >= skills - 100 && scroll < portfolio - 120) {
       // alert("이벤트 실행");          
@@ -178,6 +211,7 @@ jQuery(document).ready(function ($) {
     } else {
       $('.nav-menu li:nth-child(6)').removeClass('menu-active');
     }
+    lastScrollPosition = scroll;
   });
 
   $(window).scroll(function () {
@@ -399,56 +433,56 @@ TxtRotate.prototype.tick = function () {
 };
 
 var elementH = document.querySelector('.html_chart');
-  var pieChartHtml =  new EasyPieChart(elementH, {
-    barColor: "#17a2b8",
-    lineWidth: "12",
-    size: 150,
-    lineCap: "square",
-    trackColor: "#ddd",
-    // scaleLength: 고슴도치 없애기
-    scaleLength: 0
-    // your options goes here
-  });
-  // Back to top button
+var pieChartHtml = new EasyPieChart(elementH, {
+  barColor: "#17a2b8",
+  lineWidth: "12",
+  size: 150,
+  lineCap: "square",
+  trackColor: "#ddd",
+  // scaleLength: 고슴도치 없애기
+  scaleLength: 0
+  // your options goes here
+});
+// Back to top button
 
-   // css 파이차트
-   var element2 = document.querySelector('.css_chart');
-   var pieChartCss =new EasyPieChart(element2, {
-     barColor: "#ffc107",
-     lineWidth: "12",
-     size: 150,
-     lineCap: "square",
-     trackColor: "#ddd",
-     animate: 1500,
-     // scaleLength: 고슴도치 없애기
-     scaleLength: 0
-     // your options goes here
-   });
- 
-   // 그래픽툴
-   var element3 = document.querySelector('.graphic_chart');
-   var pieChartGraph = new EasyPieChart(element3, {
-     barColor: "#28a745",
-     lineWidth: "12",
-     size: 150,
-     lineCap: "square",
-     trackColor: "#ddd",
-     animate: 2000,
-     // scaleLength: 고슴도치 없애기
-     scaleLength: 0
-     // your options goes here
-   });
- 
-   //js 파이차트
-   var element4 = document.querySelector('.js_chart');
-   var pieChartJs = new EasyPieChart(element4, {
-     barColor: "#dc3545",
-     lineWidth: "12",
-     size: 150,
-     lineCap: "square",
-     trackColor: "#ddd",
-     animate: 2500,
-     // scaleLength: 고슴도치 없애기
-     scaleLength: 0
-     // your options goes here
-   });
+// css 파이차트
+var element2 = document.querySelector('.css_chart');
+var pieChartCss = new EasyPieChart(element2, {
+  barColor: "#ffc107",
+  lineWidth: "12",
+  size: 150,
+  lineCap: "square",
+  trackColor: "#ddd",
+  animate: 1500,
+  // scaleLength: 고슴도치 없애기
+  scaleLength: 0
+  // your options goes here
+});
+
+// 그래픽툴
+var element3 = document.querySelector('.graphic_chart');
+var pieChartGraph = new EasyPieChart(element3, {
+  barColor: "#28a745",
+  lineWidth: "12",
+  size: 150,
+  lineCap: "square",
+  trackColor: "#ddd",
+  animate: 2000,
+  // scaleLength: 고슴도치 없애기
+  scaleLength: 0
+  // your options goes here
+});
+
+//js 파이차트
+var element4 = document.querySelector('.js_chart');
+var pieChartJs = new EasyPieChart(element4, {
+  barColor: "#dc3545",
+  lineWidth: "12",
+  size: 150,
+  lineCap: "square",
+  trackColor: "#ddd",
+  animate: 2500,
+  // scaleLength: 고슴도치 없애기
+  scaleLength: 0
+  // your options goes here
+});
